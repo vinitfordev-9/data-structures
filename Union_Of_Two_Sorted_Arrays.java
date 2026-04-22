@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
 
 class Union {
@@ -52,24 +51,24 @@ class Union {
     }
 
     // ✅ Better Approach using HashSet
-    static void unionUsingHashSet(int[] a, int[] b) {
-        HashSet<Integer> set = new HashSet<>();
+    // static void unionUsingHashSet(int[] a, int[] b) {
+    //     HashSet<Integer> set = new HashSet<>();
 
-        // add elements of array a
-        for (int i = 0; i < a.length; i++) {
-            set.add(a[i]);
-        }
+    //     // add elements of array a
+    //     for (int i = 0; i < a.length; i++) {
+    //         set.add(a[i]);
+    //     }
 
-        // add elements of array b
-        for (int i = 0; i < b.length; i++) {
-            set.add(b[i]);
-        }
+    //     // add elements of array b
+    //     for (int i = 0; i < b.length; i++) {
+    //         set.add(b[i]);
+    //     }
 
-        System.out.println("The elements in hashset are:");
-        for (int num : set) {
-            System.out.println(num);
-        }
-    }
+    //     System.out.println("The elements in hashset are:");
+    //     for (int num : set) {
+    //         System.out.println(num);
+    //     }
+    // }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
