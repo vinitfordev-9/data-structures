@@ -3,26 +3,45 @@ import java.util.Scanner;
 
 class Solution {
 
-    static void bruteApproach(int[] a, int n) {
-        int ans = n / 2;
-        int res = -1;
-        if (n == 1) {
-            System.out.println("answer is :" + a[0]);
-        }
-        for (int i = 0; i < n - 1; i++) {
-            int count = 0;
-            for (int j = i; j < n; j++) {
-                if (a[i] == a[j]) {
-                    count++;
-                }
-                if (count > ans) {
-                    res = a[i];
-                    break;
-                }
+    static void optimalApproach(int[] a,int n){
+        int count=0;
+        int value=a[0];
+        for(int i=0;i<n;i++){
+            if(value==a[i]){
+                count++;
+            }
+            else if(count<1 && a[i]!=value){
+                value=a[i];
+                count=1;
+
+            }
+            else{
+                count--;
             }
         }
-        System.out.println("Answer is :" + res);
+        System.out.println("Answrr is :"+value);
     }
+
+    // static void bruteApproach(int[] a, int n) {
+    //     int ans = n / 2;
+    //     int res = -1;
+    //     if (n == 1) {
+    //         System.out.println("answer is :" + a[0]);
+    //     }
+    //     for (int i = 0; i < n - 1; i++) {
+    //         int count = 0;
+    //         for (int j = i; j < n; j++) {
+    //             if (a[i] == a[j]) {
+    //                 count++;
+    //             }
+    //             if (count > ans) {
+    //                 res = a[i];
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     System.out.println("Answer is :" + res);
+    // }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -34,7 +53,8 @@ class Solution {
 
             a[i] = sc.nextInt();
         }
-        bruteApproach(a, n);
+        // bruteApproach(a, n);
+        optimalApproach(a,n);
     }
 
 }
