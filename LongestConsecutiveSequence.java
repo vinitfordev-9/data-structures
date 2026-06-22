@@ -3,24 +3,45 @@ import java.util.*;
 
 class LongestConsecutiveSequence {
 
-    static void bruteApproach(int[] a, int n) {
-        int max = 1;
-        int count = 1;
-        Arrays.sort(a);
-        for (int i = 0; i < n - 1; i++) {
-            if (a[i] == a[i + 1]) {
-                continue;
-            } else if (a[i] + 1 == a[i + 1]) {
-                count++;
-            } else {
-                count = 1;
-            }
-
-            max = Math.max(max, count);
-
+    static void optimalApproach(int[] a,int n){
+        HashSet<Integer> set=new HashSet<>();
+        for(int i=0;i<n;i++){
+            set.add(a[i]);
         }
-        System.out.println("answer is :" + max);
+        int longest=0;
+        for(int st:set){
+            if(!set.contains(st-1)){
+                int count=1;
+                int x=st;
+                while(set.contains(x+1)){
+                    count++;
+                    x=x+1;
+                }
+                longest=Math.max(count,longest);
+            }
+        }
+        System.out.println("the count value is :"+longest);
+        
     }
+
+    // static void bruteApproach(int[] a, int n) {
+    //     int max = 1;
+    //     int count = 1;
+    //     Arrays.sort(a);
+    //     for (int i = 0; i < n - 1; i++) {
+    //         if (a[i] == a[i + 1]) {
+    //             continue;
+    //         } else if (a[i] + 1 == a[i + 1]) {
+    //             count++;
+    //         } else {
+    //             count = 1;
+    //         }
+
+    //         max = Math.max(max, count);
+
+    //     }
+    //     System.out.println("answer is :" + max);
+    // }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -32,6 +53,7 @@ class LongestConsecutiveSequence {
 
             a[i] = sc.nextInt();
         }
-        bruteApproach(a, n);
+        // bruteApproach(a, n);
+        optimalApproach(a,n);
     }
 }
